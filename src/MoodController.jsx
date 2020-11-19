@@ -2,7 +2,15 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+const Wrap = styled.div({
+  position: 'relative',
+  marginTop: '50px',
+  width: '500px',
+  height: '500px',
+});
+
 const Controller = styled.input({
+  position: 'fixed',
   width: '500px',
   height: '500px',
   backgroundColor: 'darkorange',
@@ -55,11 +63,13 @@ export default function MoodController({ onClick, moodPointLocation }) {
   if (!moodPointLocation) {
     return (
       <>
+        <Wrap>
+          <Happy>밝은</Happy>
+          <Sad>어두운</Sad>
+          <Calm>차분한</Calm>
+          <Uplifting>신나는</Uplifting>
+        </Wrap>
         <Controller type="button" value="controller" onClick={onClick} />
-        <Happy>밝은</Happy>
-        <Sad>어두운</Sad>
-        <Calm>차분한</Calm>
-        <Uplifting>신나는</Uplifting>
       </>
     );
   }
@@ -68,16 +78,18 @@ export default function MoodController({ onClick, moodPointLocation }) {
 
   return (
     <>
+      <Wrap>
+        <Happy>밝은</Happy>
+        <Sad>어두운</Sad>
+        <Calm>차분한</Calm>
+        <Uplifting>신나는</Uplifting>
+      </Wrap>
       <Controller type="button" value="controller" onClick={onClick} />
       <MoodPoint
         x={x}
         y={y}
         data-testid="mood-point"
       />
-      <Happy>밝은</Happy>
-      <Sad>어두운</Sad>
-      <Calm>차분한</Calm>
-      <Uplifting>신나는</Uplifting>
     </>
   );
 }
